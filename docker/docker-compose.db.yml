@@ -1,0 +1,27 @@
+name: project_billit
+services:
+  mysql:
+    image: mysql:8.0.34
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: '1234'
+      MYSQL_DATABASE: 'billit'
+      MYSQL_USER: 'testuser'
+      MYSQL_PASSWORD: 'test1234'
+    ports:
+      - '3306:3306'
+    volumes:
+      - billit_mysql:/var/lib/mysql
+
+  redis:
+    image: redis:latest
+    restart: unless-stopped
+    command: redis-server --requirepass test1234
+    ports:
+      - '6379:6379'
+    volumes:
+      - billit_redis:/data
+
+volumes:
+  billit_mysql:
+  billit_redis:
