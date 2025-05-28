@@ -1,4 +1,4 @@
-package com.billit.domain.entity;
+package com.billit.domain.common;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
